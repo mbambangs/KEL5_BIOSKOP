@@ -71,7 +71,7 @@
 			if($page=='Booking')
 				echo "<li class='active'><a href='404.html'>BOOKING</a></li>";
 			else
-				echo "<li><a href='about.html'>BOOKING</a></li>";
+				echo "<li><a href='bookingdum.php'>BOOKING</a></li>";
 			
 			if($page=='Theatres')
 				echo "<li class='active'><a href='detailbioskop.php'>THEATRES</a></li>";
@@ -137,7 +137,7 @@
 			echo "	<li class='active'><a href='index.php'>HOME</a></li>";
 			echo "<li><a href='404.html'>NOW PLAYING</a></li>";
 			echo "<li><a href='about.html'>COMING SOON</a></li>";
-			echo "<li><a href='about.html'>BOOKING</a></li>";
+			echo "<li><a href='bookingdum.php'>BOOKING</a></li>";
 			echo "<li><a href='theatres.php'>THEATRES</a></li>";
 			echo "<li><a href='about.html'>PROFILE</a></li>";
 			echo "<li><a href='controller/logoutaction.php'>LOGOUT</a></li>";
