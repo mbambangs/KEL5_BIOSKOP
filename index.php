@@ -6,68 +6,16 @@
 	<?php 
       	include dirname(__FILE__)."/common/def.php";
       	include dirname(__FILE__)."/common/output.php";
-      	require_once dirname(__FILE__)."/headhtml.php"
+      	require_once dirname(__FILE__)."/headhtml.php";
      ?>
 <body>
-		<div class="container">
-		   <div class="header-bottom">
-		      <div class="top-nav">
-			  <span class="menu"><img src="images/menu.png" alt=""> </span>
-
-					    <ul>
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="404.html">Albums</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<div class="clearfix"></div>
-						</ul>
-						<script>
-						$("span.menu").click(function(){
-							$(".top-nav ul").slideToggle(500, function(){
-							});
-						});
-					</script>
-
-					</div>
-		        <div class="social-icons">						
-		                <ul class="social">
-		                    <li><a  href="#" ><i> </i> </a></li>
-		                    <li><a  href="#" ><i  class="rss"></i></a></li>
-		                    <li><a  href="#" ><i class="twitter"></i></a></li>
-		                    <li><a href="#"><i class="dribble"></i></a></li>
-		                    <div class="clearfix"></div>
-		                </ul>
-		 		    </div>
-		 		    <div class="clearfix"></div>
-               </div>
-		 </div>
-  	 <div class="header">  	
-		 		<!-- Slider -->				
-				     <div class="slider">
-				      <div class="slider-wrapper theme-default">
-				            <div id="slider" class="nivoSlider">
-				                <img src="images/2.jpg" data-thumb="images/2.jpg" alt="" />
-				                <img src="images/1.jpg" data-thumb="images/1.jpg" alt="" />
-				                <img src="images/3.jpg" data-thumb="images/3.jpg" alt="" />
-				                <img src="images/1.jpg" data-thumb="images/1.jpg" alt="" />
-				            </div>
-				        </div>
-				          <div class="header_desc">
-				 			 <div class="logo">
-				 				<a href="index.html"><img src="images/log.png" alt="" /></a>
-							 </div>							
-		     		    </div>
-				   </div>
-			     <!--- End Slider --->
-		
-	</div>
-	<!---->
-
+   	<?php include dirname(__FILE__)."/menu.php";
+   		include dirname(__FILE__)."/slider.php";
+   	?>
 		<div class="container">
 		<div class="content">
 		<div class="content-top-grid">
-		<!--		<h3>NOW PLAYING</h3>-->
+				<h3>NOW PLAYING</h3>
 				<div class="content-top-in">
 				<div class="col-md-4 grid">
 					<a href="images/m1.jpg" class="b-link-stripe b-animate-go  thickbox swipebox"><img class="img-responsive" src="images/m1.jpg" alt=""/></a>

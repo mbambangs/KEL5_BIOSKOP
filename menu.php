@@ -3,11 +3,14 @@
 		<div class="top-nav">
 			  <span class="menu"><img src="images/menu.png" alt=""> </span>
 			  <ul>
-				<li class="active"><a href="index.html">HOME</a></li>
-				<li><a href="404.html">NOW PLAYING</a></li>
-				<li><a href="about.html">COMING SOON</a></li>
-				<li><a href="contact.html">THEATRES</a></li>
-				<li><a href="view/login.php">LOGIN</a></li>
+				<li class="active"><a href="index.php">HOME</a></li>
+				<li><a href="">THEATRES</a></li>
+				<li><a href="">BOOKING HISTORY</a></li>
+				<?php if(!isset($_SESSION['email'])){?>
+					<li><a href="login.php">LOGIN</a></li>
+				<?php }else{?>
+					<li><a href="controller/logoutaction.php">LOGOUT</a></li>
+				<?php }?>
 				<div class="clearfix"></div>
 			  </ul>
 			  <script>
