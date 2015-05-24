@@ -1,0 +1,1 @@
+<a href="controller/bioskopdetailaction.php?jaringan=J1&kodebioskop=B01">Cinema XX 21</a>
