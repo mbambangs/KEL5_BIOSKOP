@@ -1,5 +1,5 @@
 <div class="container">
-  <!---->
+  <!--
 	<div class="footer">
 			<div class="footer-top">
 				<div class="col-md-4 amet-sed ">
@@ -38,8 +38,8 @@
 				<div class="clearfix"> </div>
 			</div>
 			
-		</div>
+		</div> -->
 	 <div class="copy">
-		 	<p >© 2015 Modern Music All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+		 	<p >© 2015 Extended Theater All Rights Reserved</p>
 	</div>	
   </div> 
