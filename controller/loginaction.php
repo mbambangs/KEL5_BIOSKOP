@@ -13,7 +13,7 @@
 		if(authenticate($email,$password) ) {
 			$_SESSION["email"]=$email;
 			//jika login berhasil, redirect ke halaman account
-			header("Location: ../index.php");
+			header("Location: ../account.php");
 		}else{
 			//login tidak berhasil redirect ke halaman login         
 			header("Location: ../login.php");
