@@ -4,7 +4,7 @@
 	
 	function authenticate ($email,$password) {
 	echo "test".$email .  $password;
-		if( $usr = getbyusernameandpassword($email,$password) ){
+	if( $usr = getbyusernameandpassword($email,$password) ){
 			$password = ($password);
 	
 			if($usr["password"] === $password) {
@@ -22,7 +22,7 @@
 // 		echo $email;
 		$numrows=0;
 		//username and password sent from form
-		if(connectDB() != FALSE){
+		if(connect_db() != FALSE){
 			$query_string="SELECT * FROM users WHERE email ='$email' and password ='$password'";
 			$sql = pg_query($query_string) or die("Query failed: ".pg_last_error());
 			$result = pg_fetch_array($sql); 
@@ -35,7 +35,7 @@
 		echo $email;
 		$numrows=0;
 		//username and password sent from form
-		if(connectDB() != FALSE){
+		if(connect_db() != FALSE){
 			$query_string="SELECT * FROM users WHERE email ='$email' and password ='$password'"; 
 			$sql = pg_query($query_string) or die("Query failed: ".pg_last_error());
 			$numrows = pg_num_rows ($sql);
