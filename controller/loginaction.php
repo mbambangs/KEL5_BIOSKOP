@@ -18,5 +18,7 @@
 			//login tidak berhasil redirect ke halaman login         
 			header("Location: ../login.php");
 		}
+	}else{
+		header("Location: ../login.php");
 	}
 ?>

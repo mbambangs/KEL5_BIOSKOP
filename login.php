@@ -9,7 +9,12 @@
      ?>
 </head>
 <body>
-  <?php menu_output('Login')?>
+  <?php
+ 		$_SESSION['loginmenu']='Login';
+  		
+   		include dirname(__FILE__)."/menu.php";
+   		
+   	?>
     <div class="container" style="margin-top:40px">
 		<div class="row">
 			<div class="col-sm-6 col-md-4 col-md-offset-4">
