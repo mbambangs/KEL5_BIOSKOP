@@ -141,12 +141,7 @@ if(isset ($_SESSION['email'])){
 													<td><input type="text" size="5" name="jlhkursidipesan"/></td>
 								                    <td>
 								                    		<form action="#" method="POST">
-								                    		<input type="hidden" name="jaringan" value="<?php echo $_SESSION['jaringan'];?>">
-								                    		<input type="hidden" name="kodebioskop" value="<?php echo $_SESSION['kodebioskop'];?>">
-								                    		<input type="hidden" name="judulfilm" value="<?php echo $jadwal['judulfilm'];?>">
-								                    		<input type="hidden" class="nostudio" value="<?php echo $jadwal['nomorstudio'];?>">
-								                    		<input type="hidden" class="rating" value="<?php echo $jadwal['rating'];?>">
-								                    		<input type="hidden" class="waktumulai" value="<?php echo $jadwal['waktumulai'];?>">
+								                    		<input type="hidden" name="kodejadwal" value="<?php echo $jadwal['kode'];?>">
 								                    		<input type="submit" class="btn btn-danger" value="Pesan">
 								                    		</form>
 								                    </td>
