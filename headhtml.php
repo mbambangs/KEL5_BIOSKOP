@@ -32,3 +32,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   $(".swipebox").swipebox();
 	});
   </script>
+   <link rel="stylesheet" href="css/jquery-ui.css">
+   <script src="js/jquery-ui.js"></script>
+     <script>
+        $(function() {
+        $( "#sel12" ).datepicker();
+        });
+  </script>
+  <link href="lib/datatables/css/jquery.datatables.css" rel="stylesheet" type="text/css">
+  <script src="lib/datatables/js/jquery.dataTables.js" type="text/javascript"></script>
+  <script src="lib/datatables/run.js" type="text/javascript"></script>
