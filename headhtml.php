@@ -32,3 +32,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	   $(".swipebox").swipebox();
 	});
   </script>
+<script type="text/javascript" src="js/jquery-combo.js"></script>
+<script type="text/javascript" src="jquery/jquery-ui.js"></script>

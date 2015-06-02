@@ -4,7 +4,7 @@
 			  <span class="menu"><img src="images/menu.png" alt=""> </span>
 			  <ul>
 				<li class="active"><a href="index.php">HOME</a></li>
-				<li><a href="">THEATRES</a></li>
+				<li><a href="controller/theatresaction.php">THEATRES</a></li>
 				<li><a href="">BOOKING HISTORY</a></li>
 				<?php if(!isset($_SESSION['email'])){?>
 					<li><a href="login.php">LOGIN</a></li>
@@ -41,6 +41,8 @@
 				            <div id="slider" class="nivoSlider">
 				                <img src="images/5.jpg" data-thumb="images/5.jpg" alt="" />
 								<img src="images/6.jpg" data-thumb="images/6.jpg" alt="" />
+								<img src="images/3.jpg" data-thumb="images/3.jpg" alt="" />
+								<img src="images/7.jpg" data-thumb="images/7.jpg" alt="" />
 				            </div>
 				        </div>
 				          <div class="header_desc">

@@ -5,11 +5,11 @@
 	<title>Nonton 21 - Home </title>
 	<?php 
       	include dirname(__FILE__)."/common/def.php";
-      	include dirname(__FILE__)."/common/output.php";
       	require_once dirname(__FILE__)."/headhtml.php";
      ?>
 <body>
-   	<?php include dirname(__FILE__)."/menu.php";
+   	<?php 
+		include dirname(__FILE__)."/menu.php";
    		include dirname(__FILE__)."/slider.php";
    	?>
 		<div class="container">

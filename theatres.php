@@ -2,90 +2,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Nonton 21 - Home </title>
+	<title>Nonton 21 - Theater </title>
 	<link href="jquery/jquery-ui.css" rel="stylesheet">
-	
+	<link href="css/style.css" rel="stylesheet">
 </head>
 	<?php 
       	include dirname(__FILE__)."/common/def.php";
-      	include dirname(__FILE__)."/common/output.php";
       	require_once dirname(__FILE__)."/headhtml.php";
      ?>
 <body>
-   	<?php include dirname(__FILE__)."/menu.php";
+   	<?php 
+		include dirname(__FILE__)."/menu.php";
    		include dirname(__FILE__)."/slider.php";
+				
    	?>
-		<div class="container">
+	<div class="container">
 		<div class="content">
-		<div class="content-top-grid">
-					<div class="ui-widget">
+			<div class="content-top-grid">
+				<div class="ui-widget">
 
-  <label>Your preferred programming language: </label>
-
-  <select id="combobox">
-
-    <option value="">Select one...</option>
-
-    <option value="ActionScript">ActionScript</option>
-
-    <option value="AppleScript">AppleScript</option>
-
-    <option value="Asp">Asp</option>
-
-    <option value="BASIC">BASIC</option>
-
-    <option value="C">C</option>
-
-    <option value="C++">C++</option>
-
-    <option value="Clojure">Clojure</option>
-
-    <option value="COBOL">COBOL</option>
-
-    <option value="ColdFusion">ColdFusion</option>
-
-    <option value="Erlang">Erlang</option>
-
-    <option value="Fortran">Fortran</option>
-
-    <option value="Groovy">Groovy</option>
-
-    <option value="Haskell">Haskell</option>
-
-    <option value="Java">Java</option>
-
-    <option value="JavaScript">JavaScript</option>
-
-    <option value="Lisp">Lisp</option>
-
-    <option value="Perl">Perl</option>
-
-    <option value="PHP">PHP</option>
-
-    <option value="Python">Python</option>
-
-    <option value="Ruby">Ruby</option>
-
-    <option value="Scala">Scala</option>
-
-    <option value="Scheme">Scheme</option>
-
-  </select>
-
-</div>
-		</div>
-
-		<div class="content-bottom">
-			<div class="content-top-in">
+	<div>
+	<h1 class="new-text-center">Cari Bioskop</h1>
+	</div>
+		
+		<form>
+			<table style="width:100%">
+				<tr>
+				<th>Nama Kota</th>
+				<td>
+				<!-- Combo box  -->
+				<select id="combobox" >
+				<option value="">Select one...</option>
+				<?php 
+					$cities=$_SESSION['listcities'];
+					foreach($cities as $city){?>
+						<option value="<?php echo $city['id'];?>"><?php echo $city['nama'];?></option>
+					<?php } ?>
+				</select>
+				</td>
+				</tr>
+				
+				<tr>
+				<th>Judul Film</th>
+				<td>
+				<!-- Film Text box -->
+				<input type="text" style="width:78%" class="form-control" id="usr">
+				</td></br>
+				</tr>
+				
+				<td colspan="2">
+				<!-- Submit button -->
+				<div class="wrapper">
+				<button>Cari Bioskop</button>
+				</td>
+				</div>
+			</table>
+		</form>
+				</div>
+			</div>
+			
+			<div class="content-bottom">
+				<div class="content-top-in">
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
-	<script src="jquery/jquery-ui.js"></script>
 	<?php include 'jquery-combo.php'?>
-
-<?php include "footerhtml.php"?> 
+	<?php include "footerhtml.php"?> 
+	
 </body>
 </html>
-
