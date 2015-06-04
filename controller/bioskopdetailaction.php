@@ -29,6 +29,7 @@
 	    	if(isset ($_POST['datetosee'])){
 	    		$filmputars = getfilmputarbybioskop($_GET['jaringan'], $_GET['kodebioskop'], $_POST['datetosee']);
 	    		$_SESSION['jadwaltayang']=$filmputars;
+	    		$_SESSION['tanggal']=$_POST['datetosee'];
 	    		
 	    	}
 	    	

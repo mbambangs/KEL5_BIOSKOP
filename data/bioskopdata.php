@@ -43,19 +43,20 @@
 			$tanggal= "date(now())";
 		if(connect_db() != FALSE){
 			$query_string= "SELECT distinct f.judulfilm, jf.nomorstudio, jf.kode, f.rating, jf.waktumulai, jf.tglawal,jf.tglakhir,
-							(SELECT count(*) FROM kursi k WHERE jaringan='J1' AND bioskop='B01' AND nomorstudio=jf.nomorstudio)
+							(SELECT count(*) FROM kursi k WHERE jaringan='$jaringan' AND bioskop='$kodebioskop' AND nomorstudio=jf.nomorstudio)
 							-(SELECT count(*) FROM tiket tik, kursi kur, jadwal_film jfil 
 							  WHERE jfil.kode=tik.kodejadwal AND jfil.kode = jf.kode 
 							  AND kur.idkursi = tik.idkursi AND jfil.jaringan='$jaringan' 
-							  AND jfil.bioskop='$kodebioskop' AND jfil.nomorstudio=jf.nomorstudio) 
+							  AND jfil.bioskop='$kodebioskop' AND jfil.nomorstudio=jf.nomorstudio
+							  AND tik.tanggal=to_date('$tanggal','YYYY-MM-DD')) 
 							as jlhkursikosong
-							FROM  jadwal_film jf, film f, studio s, kursi k, tiket t
+							FROM  jadwal_film jf, film f, studio s, kursi k, tiket t, jadwal_instance jin
 							WHERE jf.kodefilm = f.kodefilm
 							AND jf.jaringan= s.jaringan
 							AND jf.bioskop=s.bioskop
 							AND jf.nomorstudio = s.nomor
 							AND jf.jaringan='$jaringan' AND jf.bioskop='$kodebioskop'
-							AND jf.tglawal < to_date('$tanggal','MM-DD-YYYY')";
+							AND jin.tanggal = to_date('$tanggal','YYYY-MM-DD')";
 			$sql = pg_query($query_string) or die("Query failed: ".pg_last_error());
 			$result = pg_fetch_all($sql);
 			return $result;

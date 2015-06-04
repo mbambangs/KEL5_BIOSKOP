@@ -11,6 +11,7 @@ if(isset ($_SESSION['email'])){
       	include dirname(__FILE__)."/common/output.php";
       	require_once dirname(__FILE__)."/headhtml.php";
      ?>
+</head>
 <body>	
  <?php include dirname(__FILE__)."/menu.php";?>
  <div class="slider">				
@@ -131,22 +132,24 @@ if(isset ($_SESSION['email'])){
 						                <?php
 						                if(isset ($_SESSION['jadwaltayang'])){
 											$jadwals = $_SESSION['jadwaltayang'];
-						                	foreach($jadwals as $jadwal){?>
-						                		<tr>
-													<td><?php echo $jadwal['judulfilm'];?></td>
-													<td><?php echo $jadwal['nomorstudio'];?></td>
-													<td><?php echo $jadwal['rating'];?></td>
-													<td><?php echo $jadwal['waktumulai'];?></td>
-													<td><?php echo $jadwal['jlhkursikosong'];?></td>
-													<td><input type="text" size="5" name="jlhkursidipesan"/></td>
-								                    <td>
-								                    		<form action="#" method="POST">
-								                    		<input type="hidden" name="kodejadwal" value="<?php echo $jadwal['kode'];?>">
-								                    		<input type="submit" class="btn btn-danger" value="Pesan">
-								                    		</form>
-								                    </td>
-               									 </tr>
-               									 <?php 
+											if(is_array($jadwals)){
+							                	foreach($jadwals as $jadwal){?>
+							                		<tr>
+														<td><?php echo $jadwal['judulfilm'];?></td>
+														<td><?php echo $jadwal['nomorstudio'];?></td>
+														<td><?php echo $jadwal['rating'];?></td>
+														<td><?php echo $jadwal['waktumulai'];?></td>
+														<td><?php echo $jadwal['jlhkursikosong'];?></td>
+														<td><input type="text" size="5" name="jlhkursidipesan"/></td>
+									                    <td>
+									                    		<form action="#" method="POST">
+									                    		<input type="hidden" name="kodejadwal" value="<?php echo $jadwal['kode'];?>">
+									                    		<input type="submit" class="btn btn-danger" value="Pesan">
+									                    		</form>
+									                    </td>
+	               									 </tr>
+	               									 <?php 
+							                	}
 						                	}
 						                }
 						                

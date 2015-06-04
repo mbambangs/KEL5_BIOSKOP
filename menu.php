@@ -3,10 +3,8 @@
 		<div class="top-nav">
 			  <span class="menu"><img src="images/menu.png" alt=""> </span>
 			  <ul>
-<<<<<<< HEAD
 				<li class="active"><a href="index.php">HOME</a></li>
 				<li><a href="controller/theatresaction.php">THEATRES</a></li>
-=======
 			  	<?php if (isset ($_SESSION['home'])){?>
 					<li class="active"><a href="index.php">HOME</a></li>
 				<?php }else{?>
@@ -17,8 +15,11 @@
 				<?php }else{?>
 					<li><a href="theatres.php">THEATRES</a></li>
 				<?php }?>
->>>>>>> origin/master
-				<li><a href="">BOOKING HISTORY</a></li>
+				<?php if (isset ($_SESSION['history'])){?>
+				<li class="active"><a href="controller/historyaction.php">BOOKING HISTORY</a></li>
+				<?php }else{?>
+					<li><a href="controller/historyaction.php">BOOKING HISTORY</a></li>
+				<?php }?>
 				<?php if(!isset($_SESSION['email'])){
 						if(isset($_SESSION['loginmenu'])){?>
 							<li class="active" ><a href="login.php">LOGIN</a></li>
