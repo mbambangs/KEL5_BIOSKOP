@@ -33,16 +33,17 @@
    		include dirname(__FILE__)."/data/detailfilmdata.php";
 		$results = false;
 		$code = $_GET;
-		$codeBioskop = 'B03';
-		$codeJaringan = 'J1';
-		$rowPerPage = 5;
+		$codeBioskop = $code['bioskop'];
+		$codeJaringan = $code['jaringan'];
+		$film = $code['film'];
+		$cityCode = '';
 		$results = getdetailfilm($codeJaringan, $codeBioskop);
-		for ($i=0; $i < count($results); $i++) {
-			$genre[$i] = $results[$i]['nama'];
+		$rowPerPage = 5;
+		$jadwalFilm = false;
+		if (isset($code['city'])) {
+			$cityCode = $code['city'];
+			$jadwalFilm = getjadwalfilm($codeJaringan, $cityCode, $film, $codeBioskop);
 		}
-		$genreString = implode(", ", $genre);
-		
-		$review = getreview($codeJaringan, $codeBioskop, $results[0]['kodefilm']);
 	
    	?>
 	<div class="container" id="container">
@@ -51,48 +52,40 @@
 				<div class="ui-widget">
 
 	<div>
-	<h1 class="new-text-center">Detail Film</h1>
+	<h1 class="new-text-center">Jadwal Tayang</h1>
 	</div>
 		
-		<form method="get" action="detailfilm.php" style="width:auto;" >
+		<form method="get" action="jadwal.php" style="width:auto;" >
+			<input type="hidden" name="bioskop" value="<?php echo $codeBioskop; ?>" />
+			<input type="hidden" name="jaringan" value="<?php echo $codeJaringan; ?>" />
+			<input type="hidden" name="film" value="<?php echo $film; ?>" />
 			<table align="left" style="width:100%">
 				<tr>
-				<th colspan="3"><?php echo $results[0]['judulfilm']?></th>
-				<th style="text-align:right;"><a style="color:#fff;" href="jadwal.php?bioskop=<?php echo $codeBioskop; ?>&jaringan=<?php echo $codeJaringan; ?>&film=<?php echo $results[0]['kodefilm']; ?>">[JADWAL TAYANG]</a></th>
+				<th colspan="4"><?php echo $results[0]['judulfilm']?></th>
 				</tr>
 				
 				<tr>
-				<th width="45px">Pilih Kota</th>
+				<th width="100px">Pilih Kota</th>
 				<td width="5px">:</td>
-				<td><?php echo $results[0]['rating'].' dari ' .$results[0]['jmlperating'] ?></td>
+				<td width="290px">
+				<!-- Combo box  -->
+				<select id="combobox" name="city" >
+				<option value="">Select one...</option>
+				<?php 
+					$cities=$_SESSION['listcities'];
+					foreach($cities as $city){?>
+						<?php $attrAdditional = ''; if($city['id'] == $cityCode) { $attrAdditional = 'selected'; } ?>
+						<option <?php echo $attrAdditional; ?> value="<?php echo $city['id'];?>"><?php echo $city['nama'];?></option>
+					<?php } ?>
+				</select>
+				</td>
+				<td>
+					<button style="color: #fff;border: none;background: none;background-color: #666666;padding: 6px 15px;" type="submit">Cari Bioskop</button>
+				</td>
 				</tr>
 				
 				<tr>
-				<th width="45px">Genre</th>
-				<td width="5px">:</td>
-				<td><?php echo $genreString; ?></td>
-				</tr>
-				
-				<tr>
-				<th width="45px">Sutradara</th>
-				<td width="5px">:</td>
-				<td><?php echo $results[0]['sutradara']; ?></td>
-				</tr>
-				
-				<tr>
-				<th width="45px">Sinopsis</th>
-				<td width="5px">:</td>
-				<td><?php echo $results[0]['sinopsis']; ?></td>
-				</tr>
-
-				<tr>
-				<th width="45px">Trailer</th>
-				<td width="5px">:</td>
-				<td><a href="<?php echo $results[0]['trailer']; ?>"><?php echo $results[0]['trailer']; ?></a></td>
-				</tr>
-				
-				<tr>
-				<th colspan="3">Jadwal Tayang</th>
+				<th colspan="4">Jadwal Tayang</th>
 				</tr>
 				
 			</table>
@@ -102,24 +95,37 @@
 
 			<div class="content-bottom">
 				<div class="content-top-in">
+				<?php if ($jadwalFilm) { ?>
 				<table id="listData" class="table table-striped">
 				<thead>
 	  ...			<tr>
-						<th>Reviewer</th>
-						<th>Rating</th>
-						<th>Komentar</th>
+						<th>Bioskop</th>
+						<th>Tanggal Berlaku</th>
+						<th>Tanggal Berakhir</th>
+						<th>Jam Tayang</th>
 					</tr>				
 				</thead>
 
 				<tbody id="listDataTable">
 					<?php 
-						$currentjaringan = "";
-						for ($i=0; $i < count($review); $i++) {
+						$currentName = "";
+						for ($i=0; $i < count($jadwalFilm); $i++) {
+							$namaString = '';
+							if ($currentName != $jadwalFilm[$i]['nama']) {
+								$currentName = $jadwalFilm[$i]['nama'];
+								$namaString = $currentName;
+							}
+							
+							if (($i % $rowPerPage) == 0) {
+								$currentName = "";
+								$namaString = $jadwalFilm[$i]['nama'];
+							}
 					?>
 					<tr class="listRowData" data-index="<?php echo $i; ?>">
-						<td><?php echo $review[$i]['nama'] ?></td>
-						<td><?php echo $review[$i]['nilaireview'] ?></td>
-						<td><?php echo $review[$i]['komentarreview'] ?></td>
+						<td><?php echo $namaString ?></td>
+						<td><?php echo $jadwalFilm[$i]['tglawal'] ?></td>
+						<td><?php echo $jadwalFilm[$i]['tglakhir'] ?></td>
+						<td><?php echo $jadwalFilm[$i]['waktumulai'] ?></td>
 					</tr>
 					<?php 
 						}
@@ -130,6 +136,7 @@
 					<div id="prev" class="nav prev">Prev</div>
 					<div id="next" class="nav next">Next</div>
 				</div>
+				<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -143,7 +150,7 @@
 			$(window).load(function(){
 				$(window).scrollTop( parseInt($('#container').offset().top) );
 				var rowPerPage = <?php echo $rowPerPage; ?>;
-				var allData = <?php echo count($review); ?>;
+				var allData = <?php echo count($jadwalFilm); ?>;
 				var allRowElement = $("#listData .listRowData");
 				var tableList = $("#listData");
 				var listDataTable = $("#listDataTable");

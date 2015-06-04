@@ -33,6 +33,7 @@
    		include dirname(__FILE__)."/data/bioskopdata.php";
 		$results = false;
 		$citySelected = '';
+		$rowPerPage = 10;
 		if (isset($_GET)) {
 			if (($_GET['judulfilm'] != '') && ($_GET['cityname'] != '')) {
 				$citySelected = $_GET['cityname'];
@@ -109,10 +110,9 @@
 						<th>Tarif Minimal</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="listDataTable">
 					<?php 
 						$currentjaringan = "";
-						$rowPerPage = 3;
 						for ($i=0; $i < count($results); $i++) {
 							$jaringanString = '';
 							if ($currentjaringan != $results[$i]['jaringan']) {
@@ -166,6 +166,7 @@
 				var allData = <?php echo count($results); ?>;
 				var allRowElement = $("#listData .listRowData");
 				var tableList = $("#listData");
+				var listDataTable = $("#listDataTable");
 				var prev = $("#prev");
 				var next = $("#next");
 				var i, page = [], listPageData = [];
@@ -185,14 +186,14 @@
 				}
 				
 				var hideAll = function() {
-					allRowElement.hide();
+					listDataTable.empty();
 				}
 				
 				var setPagePagination = function(index) {
 					hideAll();
 					var i;
 					for (i = 0; i < page[index].length; i++) {
-						page[index][i].show();
+						listDataTable.append(page[index][i].show());
 					}
 					tableList.attr('current-index', index);
 				}
