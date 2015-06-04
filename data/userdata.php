@@ -3,7 +3,7 @@
 	include ($basedir.'common/db.php');
 	
 	function authenticate ($email,$password) {
-	echo "test".$email .  $password;
+	
 	if( $usr = getbyusernameandpassword($email,$password) ){
 			$password = ($password);
 	
@@ -44,4 +44,3 @@
 			echo "Not OK";
 	}
 ?>
-

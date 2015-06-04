@@ -2,8 +2,8 @@
 	define('DB_HOST','localhost');
 	define('DB_USER','postgres');
 	define('DB_PORT','5432');
-	define('DB_PASS','bambang2011');
-	define('DB_NAME','KELOMPOK5_BIOSKOP');
+	define('DB_PASS','pas123');
+	define('DB_NAME','postgres');
 	define('DB_SEARCHPATH','kel5_bioskop');
 
 	/* routing */

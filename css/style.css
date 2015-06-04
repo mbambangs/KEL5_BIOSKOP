@@ -22,6 +22,16 @@ ul{
 h1,h2,h3,h4,h5,h6,label,p{
 	margin:0;		
 }
+thead {
+  background: #BCBCBC;
+}
+.table tbody {
+  background: #D2D0D0;
+  color: #000;
+}
+.table tbody:hover {
+  color: #000;
+}
 .banner{
 	background:url(../images/2.jpg)no-repeat center;
 	background-size:cover;
@@ -38,6 +48,28 @@ h1,h2,h3,h4,h5,h6,label,p{
  	width:100%;
  	z-index:9;
 }
+
+.new-text-center{
+	color:#ffffff;
+	text-align:center;
+	margin-bottom: 1em;
+}
+
+.wrapper {
+    text-align: center;
+	color:#000000;
+}
+
+form{
+	color:#ffffff;
+	width: 500px;
+	margin: 0 auto;
+}
+
+th,td{
+	padding: 10px;
+}
+
 .logo{
 	float:left;
 	padding:2em;
@@ -1184,8 +1216,8 @@ p.at-in {
 }
 .table-form form input[type="text"], .table-form textarea {
   padding: 0.5em;
-}
 .table-form span {
+}
   font-size: 1em;
 }
 .table-form textarea {

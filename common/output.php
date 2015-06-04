@@ -61,6 +61,11 @@
 			echo "<li class='active'><a href='404.html'>COMING SOON</a></li>";
 		else
 			echo "<li><a href='about.html'>COMING SOON</a></li>";
+			
+		if($page=='Theatres')
+			echo "<li class='active'><a href='theatres.php'>THEATRES</a></li>";
+		else
+			echo "<li><a href='theatres.php'>THEATRES</a></li>";
 				
 		if (!isset($_SESSION['email'])){
 			if($page=='Login')
@@ -73,10 +78,6 @@
 			else
 				echo "<li><a href='bookingdum.php'>BOOKING</a></li>";
 			
-			if($page=='Theatres')
-				echo "<li class='active'><a href='detailbioskop.php'>THEATRES</a></li>";
-			else
-				echo "<li><a href='detailbioskop.php'>THEATRES</a></li>";
 			if($page=='Profile')
 				echo "<li class='active'><a href='404.html'>PROFILE</a></li>";
 			else
