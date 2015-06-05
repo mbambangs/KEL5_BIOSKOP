@@ -9,103 +9,160 @@ if(isset ($_SESSION['email'])){
 	<?php 
       	include dirname(__FILE__)."/common/def.php";
       	include dirname(__FILE__)."/common/output.php";
-      	require  dirname(__FILE__)."/headhtml.php"
-      	
+      	require_once dirname(__FILE__)."/headhtml.php";
      ?>
+</head>
 <body>	
- <?php menu_output('Theatres');
- ?>
+ <?php include dirname(__FILE__)."/menu.php";?>
  <div class="slider">				
-	<div class="banner"></div>
-	 <div class="header_desc">
-		 <div class="logo">
-			<a href="#"><img src="images/log.png" alt="" /></a>
-		 </div>							
+	<div class="banner">
+<!-- 	<a href="#"><img src="images/bioskop.jpg" /></a></div> -->
+	 <div class="header_desc">						
 	</div>
  </div>
- 		<div class="container">
-		<div class="content">
-		<div class="about">
-		
-				<h3><?php echo $_SESSION['namabioskop'];?></h3>
+ <div class="container">
+	<div class="content">
+	<div class="about">
+<!-- 		<h4> Detail Bioskop</h4> -->
+		<br/>
 				<div class="about-in">
 					<div class="col-md-8 in-profile">
-						<h4>OUR PROFILE</h4>
+						<h4> Detail Bioskop</h4>
 						<div class="our-grid">
 							<div class="col-md-6 sit-in">
 								<a href="#" >
-									<img src="images/ab.jpg" alt="image" class="img-responsive ">
+									<img src="images/cinema.jpg" alt="image" class="img-responsive ">
 								</a>	
 							</div>				
 								<div class="col-md-6 our-head">
-									<h6 ><a href="#">Lorem ipsum dolor sit amet, consectetur adipisci ngelit. Donec nisi sem, vestibulum</a></h6>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi sem, vestibulum ac lobortis quis, aliquet in metus. Suspendi sse a nibh id eros consectetur laoreet. Etiam viverra auctor orci, eu mattis ipsum rutrum nec.
-									Etortor tortor in turpis. Proin mauris nulla, rutrum aliquet arcu vel, porttitor varius dolor. Phasellus vitae tincidunt orci, et faucibus eros. Sed dolor sapien, pharetra placerat feugiat.rutrum aliquet arcu vel, porttitor varius dolor. Phasellus vitae tincidunt orci, et faucibus eros. Sed dolor.</p>
+									<h6 ><a href="#"><?echo $_SESSION['namabioskop'];?></a></h6>
+									<p>
+										<? echo ($_SESSION['jalan'].', '.$_SESSION['kotakab'])."<br/>";
+										 echo $_SESSION['nomorkontak'];?>
+									</p>
+									<br/>
+									<table style="color:#787878">
+										<tr>
+											<td>Tarif</td>
+											<td width="10">:</td>
+											<td >Senin-Kamis IDR <? echo ($_SESSION['harikerja']); ?></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td width="10"></td>
+											<td >Jumat IDR <? 
+											$hargajumat = $_SESSION['harikerja'] + 5000;
+											echo ($hargajumat); ?></td>
+										</tr>
+											<td></td>
+											<td width="10"></td>
+											<td>Sabtu/Minggu/Libur: IDR <? echo ($_SESSION['harilibur']); ?><br/></td>	
+										</tr>
+									</table>	
+									<br/><br/>
+									
+									<p>Tanggal : 
+									<form role="form" action="controller/bioskopdetailaction.php?jaringan=<?echo $_SESSION['jaringan']?>&kodebioskop=<?echo $_SESSION['kodebioskop']?>" method="POST">
+									<input style="color=#787878" type="text" name="datetosee" id="sel12" size="20" value="<?php if(!isset($_SESSION['tanggal'])){
+																																echo date("m-d-Y");
+																															}else{ echo ($_SESSION['tanggal']);} ?>"/ >
+                       					 <script type="text/javascript">
+                               			 	var cal = new Zapatec.Calendar.setup({
+                               					inputField:"sel12",
+                                				ifFormat:"%Y-%m-%d",
+                               					button:"button2",
+                                				showsTime:false });
+                        				</script>
+                        				<br/><br/>
+                        				<div class="form-group">
+											<input type="submit" class="btn btn-danger" value="Lihat jadwal">
+										</div>
+                        			</form>
 								</div>
 							<div class="clearfix"> </div>
-							<p>Proin mauris nulla, rutrum aliquet arcu vel, porttitor varius dolor. Phasellus vitae tincidunt orci, et faucibus eros. Sed dolor sapien, pharetra placerat feugiat non, molestie nec elit.Aenean fringilla metus enim, non congue velit porta id. Mauris non lacus sollicitudin, suscipit erat eu, sodales metus. Pellentesque sit amet fringilla orci. Suspendisse lacinia quam et sapien blandit, eu mattis risus posuere. Morbi turpis lorem, vestibulum at turpis vel, suscipit tristique urna. Sed nec dapibus tellus, vel fringilla turpis. Phasellus mollis, lacus sed auct or lobortis, ante nisl tincidunt nibh.</p>
-						</div>
-					</div>
+							<br/>
+							
+
+          
+    					</div>
+   					 </div> 
+				</div>
+			</div>
 					<div class="col-md-4 in-profile">
-					<h4>Our Capabilities</h4>
+					<h4>Promo</h4>
 					<div class="col-in-about">
 						<span class="in-sed">1</span>
 						<div class="left-sit">
-							<h6><a href="#">Sed ut perspiciatis unde omnis iste natus error sit</a></h6>
-							<p>Mes cuml dia sed net lacus utenias cet inge iiqt es site am eismod icto ligulate ameti dapibustic du nt mtsen lus</p>
+							<h6><a href="#">Buy 1 Get 1 Using BNI Card</a></h6>
+							<p>Dengan menggunakan kartu Debit BNI Online Prioritas kamu bisa mendapatkan promo beli 1 gratis 1.
+							Berlaku hingga tanggal 20 Juni 2015</p>
+							<img src="images/BNI-logo.png"/>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
 					<div class="col-in-about">
 						<span class="in-sed">2</span>
 						<div class="left-sit">
-							<h6><a href="#">Sed ut perspiciatis unde omnis iste natus error sit</a></h6>
-							<p>Mes cuml dia sed net lacus utenias cet inge iiqt es site am eismod icto ligulate ameti dapibustic du nt mtsen lus </p>
+							<h6><a href="#">Get 50% discount for PopCorn</a></h6>
+							<p>Ingin berbagi sesuatu dengan temanmu saat nonton? Dengan menjadi member kamu bisa dapatkan potongan 50% setiap pembelian Popcorn berukuran besar.
+							Berlaku hingga tanggal 11 Juni 2015</p>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<div class="col-in-about">
-						<span class="in-sed">3</span>
-						<div class="left-sit">
-							<h6><a href="#">Sed ut perspiciatis unde omnis iste natus error sit</a></h6>
-							<p>Mes cuml dia sed net lacus utenias cet inge iiqt es site am eismod icto ligulate ameti dapibustic du nt mtsen lus</p>
-						</div>
-						<div class="clearfix"> </div>
-					</div>	
-				</div>
 				<div class="clearfix"> </div>
 			</div>
+			
+			<div class="content-team ">
+				<h4 style="font-size: 14pt"> Jadwal Penayangan Film</h4>
+							<div class="post">
+						    <div class="entry">
+						        <table id="datatable" class="dataTable">
+						            <thead>
+						                <tr>
+						                    <th>Film</th>
+						                    <th>Studio</th>
+						                    <th>Rating</th>
+						                    <th>Jam Tayang</th>
+						                    <th>Jumlah Kursi Kosong</th>
+						                    <th>#Tiket dipesan</th>
+						                    <th>Silahkan pesan</th>
+						                </tr>
+						            </thead>
+						            <tbody>
+						                <?php
+						                if(isset ($_SESSION['jadwaltayang'])){
+											$jadwals = $_SESSION['jadwaltayang'];
+											if(is_array($jadwals)){
+							                	foreach($jadwals as $jadwal){?>
+							                		<tr>
+														<td><?php echo $jadwal['judulfilm'];?></td>
+														<td><?php echo $jadwal['nomorstudio'];?></td>
+														<td><?php echo $jadwal['rating'];?></td>
+														<td><?php echo $jadwal['waktumulai'];?></td>
+														<td><?php echo $jadwal['jlhkursikosong'];?></td>
+														<td><input type="text" size="5" name="jlhkursidipesan"/></td>
+									                    <td>
+									                    		<form action="#" method="POST">
+									                    		<input type="hidden" name="kodejadwal" value="<?php echo $jadwal['kode'];?>">
+									                    		<input type="submit" class="btn btn-danger" value="Pesan">
+									                    		</form>
+									                    </td>
+	               									 </tr>
+	               									 <?php 
+							                	}
+						                	}
+						                }
+						                
+						                ?>
+						            </tbody>
+						        </table>
+						    </div>
+						    </div>
+		</div>
 
 	</div>
-	<div class="content-team ">
-			
-				<h4> TEAM</h4>
-				<div class="team-left">					
-					<div class="col-md-3 team-top">
-					<a href="#"><img class="img-responsive  mix-in" src="images/p1.jpg" alt=""></a>
-						<h6><a href="#">Duis autem</a></h6>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-					</div>
-					<div class="col-md-3 team-top ">
-						<a href="#"><img class="img-responsive  mix-in" src="images/p2.jpg" alt=""></a>
-						<h6><a href="#">Duis autem</a></h6>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-					</div>
-					<div class="col-md-3 team-top">
-						<a href="#"><img class="img-responsive  mix-in" src="images/p3.jpg" alt=""></a>
-						<h6><a href="#">Duis autem</a></h6>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-					</div>
-					<div class="col-md-3 team-top top-team">
-						<a href="#"><img class="img-responsive  mix-in" src="images/p4.jpg" alt=""></a>
-						<h6><a href="#">Duis autem</a></h6>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			
-		</div>
-</div>
+	</div>
+	</div>
 </div>
   				
 

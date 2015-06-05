@@ -22,6 +22,7 @@ ul{
 h1,h2,h3,h4,h5,h6,label,p{
 	margin:0;		
 }
+<<<<<<< HEAD
 thead {
   background: #BCBCBC;
 }
@@ -31,9 +32,13 @@ thead {
 }
 .table tbody:hover {
   color: #000;
+=======
+h2{
+	color:white;
+>>>>>>> origin/master
 }
 .banner{
-	background:url(../images/2.jpg)no-repeat center;
+	background:url(../images/bioskop.jpg)repeat-x center;
 	background-size:cover;
 	width:100%;
 	min-height:200px;
@@ -205,6 +210,8 @@ font-family: 'Oswald', sans-serif;
 .grid-middle ul li{
 	list-style:none;
 	border-bottom: 1px dashed #BBB8B8;
+	color:grey;
+	padding-bottom: 10px;
 }
 .grid-middle ul li a{
 	color:#787878;
@@ -559,6 +566,7 @@ p.your-para{
 	background:#464545;
 	outline:none;
 	border: none;
+	color:white;
 	-webkit-appearance: none;
 }
 .contact-grid textarea{
@@ -1256,4 +1264,7 @@ p.at-in {
 	-moz-border-radius: 50%;
 	-webkit-border-radius: 50%;
 	border-radius: 50%;
+}
+.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
+    border: none;
 }

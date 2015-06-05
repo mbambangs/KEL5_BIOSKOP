@@ -5,6 +5,7 @@
 	<title>Nonton 21 - Theater </title>
 	<link href="jquery/jquery-ui.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+<<<<<<< HEAD
 	<style>
 		.listRowData, .prev {
 			display:none;
@@ -21,6 +22,8 @@
 			float: left;
 		}
 	</style>
+=======
+>>>>>>> origin/master
 </head>
 	<?php 
       	include dirname(__FILE__)."/common/def.php";
@@ -30,6 +33,7 @@
    	<?php 
 		include dirname(__FILE__)."/menu.php";
    		include dirname(__FILE__)."/slider.php";
+<<<<<<< HEAD
    		include dirname(__FILE__)."/data/bioskopdata.php";
 		$results = false;
 		$citySelected = '';
@@ -50,6 +54,11 @@
 		}
    	?>
 	<div class="container" id="container">
+=======
+				
+   	?>
+	<div class="container">
+>>>>>>> origin/master
 		<div class="content">
 			<div class="content-top-grid">
 				<div class="ui-widget">
@@ -58,19 +67,31 @@
 	<h1 class="new-text-center">Cari Bioskop</h1>
 	</div>
 		
+<<<<<<< HEAD
 		<form method="get" action="theatres.php" >
+=======
+		<form>
+>>>>>>> origin/master
 			<table style="width:100%">
 				<tr>
 				<th>Nama Kota</th>
 				<td>
 				<!-- Combo box  -->
+<<<<<<< HEAD
 				<select id="combobox" name="cityname" >
+=======
+				<select id="combobox" >
+>>>>>>> origin/master
 				<option value="">Select one...</option>
 				<?php 
 					$cities=$_SESSION['listcities'];
 					foreach($cities as $city){?>
+<<<<<<< HEAD
 						<?php $attrAdditional = ''; if($city['id'] == $citySelected) { $attrAdditional = 'selected'; } ?>
 						<option <?php echo $attrAdditional; ?> value="<?php echo $city['id'];?>"><?php echo $city['nama'];?></option>
+=======
+						<option value="<?php echo $city['id'];?>"><?php echo $city['nama'];?></option>
+>>>>>>> origin/master
 					<?php } ?>
 				</select>
 				</td>
@@ -80,14 +101,22 @@
 				<th>Judul Film</th>
 				<td>
 				<!-- Film Text box -->
+<<<<<<< HEAD
 				<input type="text" style="width:78%" class="form-control" id="usr" name="judulfilm">
+=======
+				<input type="text" style="width:78%" class="form-control" id="usr">
+>>>>>>> origin/master
 				</td></br>
 				</tr>
 				
 				<td colspan="2">
 				<!-- Submit button -->
 				<div class="wrapper">
+<<<<<<< HEAD
 				<button type="submit">Cari Bioskop</button>
+=======
+				<button>Cari Bioskop</button>
+>>>>>>> origin/master
 				</td>
 				</div>
 			</table>
@@ -97,6 +126,7 @@
 			
 			<div class="content-bottom">
 				<div class="content-top-in">
+<<<<<<< HEAD
 				<?php 
 					if ($results != false) {
 				?>
@@ -149,12 +179,15 @@
 					echo '<h2 style="text-align:center; color: #fff;">Data tidak ditemukan.<h2>';
 				}
 				?>
+=======
+>>>>>>> origin/master
 				</div>
 			</div>
 		</div>
 	</div>
 	<?php include 'jquery-combo.php'?>
 	<?php include "footerhtml.php"?> 
+<<<<<<< HEAD
 	<?php
 		if (isset($_GET)) {
 	?>
@@ -230,5 +263,8 @@
 	<?php
 		}
 	?>
+=======
+	
+>>>>>>> origin/master
 </body>
 </html>
